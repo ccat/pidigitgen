@@ -91,6 +91,10 @@ func udpPiGenListen(readFile *os.File) {
 			fmt.Fprintln(os.Stderr, err)
 			continue
 		}
+		ind = ind - 1
+		if ind < 0 {
+			ind = 0
+		}
 
 		_, err = readFile.ReadAt(readbuf, ind)
 		if err != nil {
